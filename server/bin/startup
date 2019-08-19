@@ -1,0 +1,148 @@
+#!/usr/bin/env node
+
+
+
+
+//tool.js
+module.exports = {
+  dailyUpdateTempRecommendation: function() {
+    function timing() {
+      let {
+        PythonShell
+      } = require('python-shell');
+
+
+      function runScript() {
+
+        PythonShell.run(
+          'Regression_trees_temperature.py', {
+            mode: 'text',
+            pythonPath: '/anaconda3/bin/python', // import sys, print(sys.executable)
+            pythonOptions: ['-u'], // get print results in real-time
+            scriptPath: '/Users/goshoukei/Capstone-2/server/py'
+          },
+          // function(err) {
+          //   if (err) throw err;
+          //   console.log("errors");
+          //
+          // }
+        );
+
+      }
+      var now = new Date();
+      var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 15, 0, 0) - now;
+      if (millisTill10<1000 && millisTill10>0) {
+        runScript();
+      }
+
+    }
+  m = setInterval(timing, 1000);
+
+
+  },
+  dailyUpdateAvgTemp: function() {
+    function timing() {
+      let {
+        PythonShell
+      } = require('python-shell');
+
+
+      function runScript() {
+
+        PythonShell.run(
+          'Get_one_week_average_set_temp.py', {
+            mode: 'text',
+            pythonPath: '/anaconda3/bin/python', // import sys, print(sys.executable)
+            pythonOptions: ['-u'], // get print results in real-time
+            scriptPath: '/Users/goshoukei/Capstone-2/server/py' //Needs modification by client
+          },
+          // function(err) {
+          //   if (err) throw err;
+          //   console.log("errors");
+          //
+          // }
+        );
+
+      }
+      var now = new Date();
+      var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 15, 0, 0) - now;
+      if (millisTill10<1000 && millisTill10>0) {
+        runScript();
+      }
+
+    }
+  n = setInterval(timing, 1000);
+
+
+  },
+  dailyUpdateHumidity: function() {
+    function timing() {
+      let {
+        PythonShell
+      } = require('python-shell');
+
+
+      function runScript() {
+
+        PythonShell.run(
+          'MMMS_humidity.py', {
+            mode: 'text',
+            pythonPath: '/anaconda3/bin/python', // import sys, print(sys.executable)
+            pythonOptions: ['-u'], // get print results in real-time
+            scriptPath: '/Users/goshoukei/Capstone-2/server/py' //Needs modification by client
+          },
+          // function(err) {
+          //   if (err) throw err;
+          //   console.log("errors");
+          //
+          // }
+        );
+
+      }
+
+      var now = new Date();
+      var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 15, 0, 0) - now;
+      if (millisTill10<1000 && millisTill10>0) {
+        runScript();
+      }
+
+    }
+  p = setInterval(timing, 1000);
+
+  },
+  dailyUpdateLaundryPickup: function() {
+    function timing() {
+      let {
+        PythonShell
+      } = require('python-shell');
+
+
+      function runScript() {
+
+        PythonShell.run(
+          'laundryPickUpResult.py', {
+            mode: 'text',
+            pythonPath: '/anaconda3/bin/python', // import sys, print(sys.executable)
+            pythonOptions: ['-u'], // get print results in real-time
+            scriptPath: '/Users/goshoukei/Capstone-2/server/py' //Needs modification by client
+          },
+          // function(err) {
+          //   if (err) throw err;
+          //   console.log("errors");
+          //
+          // }
+        );
+
+      }
+
+      var now = new Date();
+      var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 15, 0, 0) - now;
+      if (millisTill10<1000 && millisTill10>0) {
+        runScript();
+      }
+
+    }
+  p = setInterval(timing, 1000);
+
+  },
+};
